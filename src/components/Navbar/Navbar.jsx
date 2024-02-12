@@ -1,14 +1,11 @@
 import React from 'react'
-import { ItemNav } from '../ItemNav/ItemNav'
 
-export const Navbar = () => {
+
+export const Navbar = ({children}) => {
   return (
     <nav>
       <ul>
-        <ItemNav content = 'Inicio' />
-        <ItemNav content = 'Acerca de mi' />
-        <ItemNav content = 'Proyectos' />
-        <ItemNav content = 'Experiencia' />
+        {children}
       </ul>
     </nav>
   )
