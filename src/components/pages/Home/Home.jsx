@@ -1,18 +1,34 @@
-import React from 'react'
 import { Header } from '../../Layouts/Header/Header'
-import { Logo } from '../../Logo/Logo'
-import { Navbar } from '../../Navbar/Navbar'
-import { Item } from '../../Item/Item'
+
+
+
+import { Main } from '../../Layouts/Main/Main'
+import { PictureProfile } from '../../PictureProfile/PictureProfile'
+import { DescriptionProfile } from '../../DescriptionProfile/DescriptionProfile'
+import { Card } from '../../Card/Card'
+import { myProjects } from '../../../app/projects' 
+
 
 export const Home = () => {
   return (
-    <Header>
-      <Logo />
-      <Navbar>
-          <Item content = 'Inicio' />
-          <Item content = 'Acerca de mi' />
-          <Item content = 'Proyectos' />          
-      </Navbar>
-    </Header>
+    <>    
+    <Main>
+      <PictureProfile />
+      <DescriptionProfile />      
+    </Main>    
+    <Main styleMain={'style-main'}>
+      <h2>Mis proyectos</h2>
+      <div className="container-cards">
+           {
+            myProjects.map( (card,idx) => <Card
+              key={card.title+idx}
+              img = {card.img}
+              title = {card.title}
+              description = {card.description}
+             /> )
+           }
+      </div>
+    </Main>
+    </>
   )
 }
